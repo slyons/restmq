@@ -27,7 +27,7 @@ class SyslogdProtocol(LineReceiver):
         print 'Connection from %r' % self.transport
 
     def lineReceived(self, line):
-        host = self.transport.getHost().host
+        host = self.transport.getPeer().host
         queue_name = "syslogd:%s" % host
         k = {}
         k['line'] = line.strip()
